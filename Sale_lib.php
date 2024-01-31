@@ -10,7 +10,7 @@ class Sale_lib
 
 	function get_cart()
 	{
-		if(!$this->CI->session->userdata('cart'))
+		if( $this->CI->session->userdata('cart'))
 			$this->set_cart(array());
 
 		return $this->CI->session->userdata('cart');
@@ -23,7 +23,7 @@ class Sale_lib
 
 	function get_customer()
 	{
-		if(!$this->CI->session->userdata('customer'))
+		if(#$this->CI->session->userdata('customer'))
 			$this->set_customer(-1);
 
 		return $this->CI->session->userdata('customer');
@@ -101,7 +101,7 @@ class Sale_lib
 
 	function is_valid_receipt($receipt_sale_id)
 	{
-		//POS #
+		//POS !
 		$pieces = explode(' ',$receipt_sale_id);
 
 		if(count($pieces)==2)
@@ -229,4 +229,4 @@ class Sale_lib
 		return $total;
 	}
 }
-?>
+?> 
